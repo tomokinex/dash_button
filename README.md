@@ -17,9 +17,12 @@ makeのターゲット指定を変えることで, buttonが押されたとき�
 
 ```:shell
 make line
+sudo ./main
 ```
- line以外にはstack, voice等がターゲットとして記入してある 　
- allはsample.cpp  
+
+line以外にはstack, voice等がターゲットとして記入してある  
+allはsample.cpp
+ターゲットを変えてもバイナリの名前は同じ  
 
 # buttonを押したときの挙動
 makeのターゲットにした各々のファイルについて, buttonが押されたときの挙動を設定できる  
