@@ -24,12 +24,12 @@ make line
 # buttonを押したときの挙動
 makeのターゲットにした各々のファイルについて, buttonが押されたときの挙動を設定できる  
 ## line.cpp, voice.cppの場合
-IFTTTのwebhooks(https://ifttt.com/maker_webhooks)というサービスを用いる  
+IFTTTの[webhooks](https://ifttt.com/maker_webhooks)というサービスを用いる  
 POSTしたHTTP requestをhookして, 別のアプリに通知を送ることができる  
 IFTTTに登録すると, 個人用のtokenが発行されるので, サンプルのcurl scriptの内容をそのままコピーする  
 
 ## slack.cppの場合
-Incoming Webhook(https://api.slack.com/incoming-webhooks)というslackのインテグレーションを用いる  
+[Incoming Webhook](https://api.slack.com/incoming-webhooks)というslackのインテグレーションを用いる  
 これも, POSTしたHTTP requestをhookして, slackに通知を送ることができる  
 Incoming Webhookを導入して表示されるサンプルのcurl scriptを参考に記入する  
 
