@@ -1,7 +1,7 @@
 CPP=g++
 FLAG=-O3 -std=c++11 
 
-all: sample
+all: sample arp
 
 line: main.o line.o
 	$(CPP) -o  main main.o line.o
@@ -14,6 +14,9 @@ voice: main.o voice.O
 
 sample: main.o sample.o
 	$(CPP) -o main main.o sample.o
+
+arp: arp_recv.o
+	$(CPP) -o arp arp_recv.o
 
 main.o: main.cpp defines.hpp
 	$(CPP) -c $(FLAG) main.cpp 
@@ -29,5 +32,8 @@ voice.o: voice.cpp
 
 sample.o: sample.cpp
 	$(CPP) -c $(FLAG) sample.cpp
+
+arp_recv.o: arp_recv.cpp
+	$(CPP) -c $(FLAG) arp_recv.cpp
 
 clean:; rm -f *.o *~main
