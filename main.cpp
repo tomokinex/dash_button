@@ -1,7 +1,6 @@
 #include "defines.hpp"
 
 int main(int argc, char* argv[]) {
-
     /*ソケットを作成*/
     int arp_sock = socket(AF_PACKET, SOCK_DGRAM, htons(ETH_P_ARP));
     if(arp_sock < 0) {
@@ -23,6 +22,15 @@ int main(int argc, char* argv[]) {
     /*Dash buttonのMACアドレスを格納*/
     unsigned char button_addr[6];
     read_button_address(button_addr);
+     if(daemon(0, 0) == 0) {
+         main_loop(arp_sock, button_addr);
+     }else{
+         perror("Make demon process");
+         return 1;
+     }
+     return 0;
+}
+void main_loop(int arp_sock, unsigned char* button_addr){
     
     /*受信*/
     while(1) {
@@ -40,7 +48,7 @@ int main(int argc, char* argv[]) {
           execute();
       }
     }
-    return 0;
+    return;
 }
 
 

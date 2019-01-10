@@ -11,6 +11,7 @@
 #include <netinet/if_ether.h>
 #include <net/if_arp.h>
 #include <net/if.h>
+#include <unistd.h>
 using namespace std;
 void read_button_address(unsigned char* button_addr){
     ifstream ifs("./address.txt");
@@ -32,5 +33,5 @@ void read_button_address(unsigned char* button_addr){
 bool addr_matching(unsigned char* addr1, unsigned char* addr2){
     return addr1[0] == addr2[0] && addr1[1] == addr2[1] && addr1[2] == addr2[2] && addr1[3] == addr2[3] && addr1[4] == addr2[4] && addr1[5] == addr2[5];
 }
-
+void main_loop(int arp_sock, unsigned char* button_addr);
 void execute();
